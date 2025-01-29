@@ -1,0 +1,31 @@
+pip3 install pipenv
+
+pipenv install
+
+pipenv shell
+
+exit
+
+pipenv install flask
+
+export FLASK_APP=urlshort
+set FLASK_ENV=development
+
+flask run
+
+In flask we can break things into small parts called blue prints
+
+
+to test our project
+
+pipenv install pytest
+
+pytest can be used before deployment
+
+flask run --host=0.0.0.0  # share it publicly
+
+pipenv install gunicorn
+
+gunicorn "urlshort:create_app()" -b 0.0.0.0
+
+sudo apt install nginx
