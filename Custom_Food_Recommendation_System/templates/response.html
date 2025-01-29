@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>data.iloc[i] Cards</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!-- Replace this comment with the Jinja2 for loop -->
+        {% for i in range(5) %}
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.iloc[i]['Name'] }}</h5>
+                    <p class="card-text">
+                        Calories: {{ data.iloc[i]['Calories'] }}<br>
+                        RecipeIngredientParts: <br>
+                        <ul>
+                        {% for i in data.iloc[i]['RecipeIngredientParts'].split(',')[1:] %}
+                        <li>
+                            {{i}}
+                        </li>
+                    {% endfor %}
+                        </ul>
+                        FatContent: {{ data.iloc[i]['FatContent'] }}<br>
+                        ProteinContent: {{ data.iloc[i]['ProteinContent'] }}<br>
+                        RecipeInstructions:<br>
+                          <ul>
+                        {% for i in data.iloc[i]['RecipeInstructions'].split(',')[1:] %}
+                        <li>
+                            {{i}}
+                        </li>
+                    {% endfor %}
+                        </ul>
+                        <!-- Add similar lines for other nutritional values -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- End of the Jinja2 for loop -->
+    </div>
+</div>
+<!-- Include Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

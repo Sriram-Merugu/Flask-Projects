@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Food Recommendation</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Custom Food Recommendation</h2>
+    <form  action="{{ url_for('predict') }}" method="POST" >
+        <div class="form-group">
+            <label for="calories">Calories (0-2000)</label>
+            <input type="range" class="form-control-range" id="calories" name="calories" min="0" max="2000" oninput="updateValue('caloriesValue', this.value)">
+            <span id="caloriesValue"></span>
+        </div>
+        <div class="form-group">
+            <label for="fatContent">Fat Content (0-100)</label>
+            <input type="range" class="form-control-range" id="fatContent" name="fatContent" min="0" max="100" oninput="updateValue('fatContentValue', this.value)">
+            <span id="fatContentValue"></span>
+        </div>
+        <div class="form-group">
+            <label for="saturatedFatContent">Saturated Fat Content (0-13)</label>
+            <input type="range" class="form-control-range" id="saturatedFatContent" name="saturatedFatContent" min="0" max="13" oninput="updateValue('saturatedFatContentValue', this.value)">
+            <span id="saturatedFatContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="cholesterolContent">Cholesterol Content (0-300)</label>
+            <input type="range" class="form-control-range" id="cholesterolContent" name="cholesterolContent" min="0" max="300" oninput="updateValue('cholesterolContentValue', this.value)">
+            <span id="cholesterolContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="sodiumContent">Sodium Content (0-2300)</label>
+            <input type="range" class="form-control-range" id="sodiumContent" name="sodiumContent" min="0" max="2300" oninput="updateValue('sodiumContentValue', this.value)">
+            <span id="sodiumContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="carbohydrateContent">Carbohydrate Content (0-325)</label>
+            <input type="range" class="form-control-range" id="carbohydrateContent"  name="carbohydrateContent" min="0" max="325" oninput="updateValue('carbohydrateContentValue', this.value)">
+            <span id="carbohydrateContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="fiberContent">Fiber Content (0-50)</label>
+            <input type="range" class="form-control-range" id="fiberContent" name="fiberContent" min="0" max="50" oninput="updateValue('fiberContentValue', this.value)">
+            <span id="fiberContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="sugarContent">Sugar Content (0-40)</label>
+            <input type="range" class="form-control-range" id="sugarContent" name="sugarContent" min="0" max="40" oninput="updateValue('sugarContentValue', this.value)">
+            <span id="sugarContentValue"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="proteinContent">Protein Content (0-40)</label>
+            <input type="range" class="form-control-range" id="proteinContent" name="proteinContent" min="0" max="40" oninput="updateValue('proteinContentValue', this.value)">
+            <span id="proteinContentValue"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        
+        <!-- Add similar blocks for other nutritional values -->
+    </form>
+</div>
+<!-- Include Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+function updateValue(id, value) {
+    document.getElementById(id).textContent = value;
+}
+</script>
+</body>
+</html>
